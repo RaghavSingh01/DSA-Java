@@ -5,8 +5,15 @@
  */
 
 // @lc code=start
+
+import java.util.ArrayList;
+
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+
         
     }
 }
