@@ -12,8 +12,6 @@ import java.util.Map;
 class Solution {
     public boolean isAnagram(String s, String t) {
         Map<Character, Integer> mapS = new HashMap<>();
-        Map<Character, Integer> mapT = new HashMap<>();
-        boolean flag = false;
 
         char[] charS = s.toCharArray();
         char[] charT = t.toCharArray();
@@ -22,27 +20,25 @@ class Solution {
             mapS.put(c, mapS.getOrDefault(c,0) + 1);
         }
 
-        for(char c: charT){
-            mapT.put(c, mapT.getOrDefault(c,0) + 1);
-        }
-
         if(charS.length != charT.length){
             return false;
         }
 
         for(char c: charT){
             if(mapS.containsKey(c)){
-                if(mapS.get(c) == mapT.get(c)){
-                    flag = true;
+                if(mapS.get(c).intValue() <= 0){
+                    return false;
+                }
+                else{
+                    mapS.put(c, mapS.get(c) - 1);
                 }
             }
             else{
-                flag = false;
-                break;
+                return false;
             }
         }
 
-        return flag;
+        return true;
     }
 }
 // @lc code=end
